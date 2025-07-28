@@ -1,13 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Topographic Wallpaper</title>
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body>
-  <script src="https://cdn.jsdelivr.net/npm/three@0.153.0/build/three.min.js"></script>
-  <script src="script.js"></script>
-</body>
-</html>
+<!-- 
+Wanted to add this effect to my personal site but could not find a vanilla canvas implementation online, so made my own!
+
+This takes bits and pieces from other similar projects done in different frameworks (links below), but adapted for vanilla canvas and ts, with some extra optimizations and rules for drawing lines at various threshold increments to get the desired look
+
+This uses a Perlin noise library to get random noise in a grid pattern, and then uses the "Marching Squares" algorithm to iterate through the grid and draw lines based on the values of the grid squares, with linear interpolation to smooth out the rough edges
+
+Added a little bit of mouse interactivity by offsetting the noise z-index in the grids surrounding the mouse
+
+Resources:
+https://editor.p5js.org/rjgilmour/sketches/l3XM1tz6d
+https://jurasic.dev/marching_squares/
+https://github.com/chriscourses/perlin-noise
+https://youtu.be/0ZONMNUKTfU?si=d9X9be288pA3IKDQ
+https://github.com/jasonwebb/morphogenesis-resources#marching-squares
+-->
+<canvas id="res-canvas"></canvas>
+
+<div class="fps-container">
+  <p id="fps-count"></p>
+</div>
